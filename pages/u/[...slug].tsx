@@ -75,6 +75,14 @@ const Post = () => {
   return (
     <Layout>
       <Head>
+        {post?.attributes.previewImage.data ? (
+          <meta
+            property="og:image"
+            content={post.attributes.previewImage.data.attributes.url}
+          />
+        ) : (
+          <></>
+        )}
         <title>{post?.attributes?.title} | Космическая маслобойка</title>
       </Head>
       {render()}

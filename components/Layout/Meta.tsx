@@ -20,10 +20,6 @@ const Meta = () => {
         href="/fav/favicon-16x16.png"
       />
       <meta name="description" content="Добродошли на Космическую маслобойку" />
-      <meta
-        property="og:image"
-        content="https://spacechurn.herokuapp.com/og-image.jpg"
-      />
     </Head>
   );
 };
