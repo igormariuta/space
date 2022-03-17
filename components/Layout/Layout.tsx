@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import Meta from "./Meta";
 
-function Layout({ children }: any) {
+const Layout = ({ children }: any) => {
   const [sidebarVis, setSidebarVis] = useState(true);
   const changeSidebarVis = () => setSidebarVis((state) => !state);
 
   return (
     <>
+      <Meta />
       <Header changeSidebarVis={changeSidebarVis} />
       <main className="main d-flex">
         <div className={`sidebar ${sidebarVis ? "" : "sidebar--toggle"}`}>
@@ -19,6 +21,6 @@ function Layout({ children }: any) {
       </main>
     </>
   );
-}
+};
 
 export default Layout;

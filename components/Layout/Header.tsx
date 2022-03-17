@@ -1,7 +1,7 @@
 import { Person } from "react-bootstrap-icons";
 import Link from "next/link";
 
-function Header({ changeSidebarVis }: any) {
+const Header = ({ changeSidebarVis }: any) => {
   return (
     <header className="header fixed-top d-flex bg-primary align-items-center px-4 py-2">
       <div className="header-navigation d-flex align-items-center">
@@ -34,6 +34,6 @@ function Header({ changeSidebarVis }: any) {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

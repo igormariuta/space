@@ -1,14 +1,20 @@
-import Layout from "../components/Layout/Layout";
-import { fetcher } from "../utils/fetcher";
-import useSWR, { SWRConfig } from "swr";
-import qs from "qs";
-import PostsList from "../components/PostsList/PostsList";
 import Head from "next/head";
-import NotFound from "../components/NotFound/NotFound";
-// import NotFound from "../components/NotFound/NotFound";
+import { useRouter } from "next/router";
+import qs from "qs";
+import useSWR, { SWRConfig } from "swr";
+import Layout from "../../components/Layout/Layout";
+import NotFound from "../../components/NotFound/NotFound";
+import PostsList from "../../components/PostsList/PostsList";
+import { fetcher } from "../../utils/fetcher";
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context: any) {
+  const { slug } = context.query;
   const query = qs.stringify({
+    filters: {
+      tags: {
+        $containsi: slug,
+      },
+    },
     populate: ["previewImage", "user.avatar", "comments"],
     sort: ["publishedAt:desc", "id"],
   });
@@ -21,8 +27,16 @@ export async function getServerSideProps() {
   };
 }
 
-const New = () => {
+function Tag() {
+  const router = useRouter();
+  const { slug } = router.query;
+
   const query = qs.stringify({
+    filters: {
+      tags: {
+        $containsi: slug,
+      },
+    },
     populate: ["previewImage", "user.avatar", "comments"],
     sort: ["publishedAt:desc", "id"],
   });
@@ -47,17 +61,19 @@ const New = () => {
   return (
     <Layout>
       <Head>
-        <title>New | Космическая маслобойка</title>
+        <title>#{slug} | Космическая маслобойка</title>
       </Head>
+      <div className="container-sm mb-4">
+        <h2 className="h4 mb-0">#{slug}</h2>
+      </div>
       {render()}
     </Layout>
   );
-};
-
-export default function NewPage({ fallback }: any) {
+}
+export default function TagPage({ fallback }: any) {
   return (
     <SWRConfig value={{ fallback }}>
-      <New />
+      <Tag />
     </SWRConfig>
   );
 }

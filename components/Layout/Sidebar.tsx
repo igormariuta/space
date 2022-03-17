@@ -2,7 +2,7 @@ import { Activity, Bookmark, Clock, InfoCircle } from "react-bootstrap-icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Sidebar() {
+const Sidebar = () => {
   const router = useRouter();
 
   return (
@@ -77,6 +77,6 @@ function Sidebar() {
       </footer>
     </aside>
   );
-}
+};
 
 export default Sidebar;
