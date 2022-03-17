@@ -75,7 +75,7 @@ const Post = () => {
   return (
     <Layout>
       <Head>
-        <title>{post.attributes.title} | Космическая маслобойка</title>
+        <title>{post?.attributes?.title} | Космическая маслобойка</title>
       </Head>
       {render()}
     </Layout>

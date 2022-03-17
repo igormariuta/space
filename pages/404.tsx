@@ -5,9 +5,6 @@ import NotFound from "../components/NotFound/NotFound";
 export default function Custom404() {
   return (
     <Layout>
-      <Head>
-        <title>Not Found | Космическая маслобойка</title>
-      </Head>
       <NotFound />
     </Layout>
   );
