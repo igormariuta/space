@@ -1,0 +1,113 @@
+.header {
+  height: 58px;
+
+  &-logo {
+    background: url("../images/infinity.png") no-repeat center;
+    background-size: contain;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.main {
+  margin-top: 58px;
+}
+
+.sidebar {
+  width: 220px;
+
+  aside {
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 58px;
+    height: calc(100% - 58px);
+  }
+
+  .show-m {
+    display: none;
+  }
+
+  // ====================================================================
+
+  width: 66px;
+
+  aside {
+    width: 90px;
+    padding: 1.5rem !important;
+
+    svg {
+      margin-right: 0 !important;
+    }
+
+    .btn {
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+
+      span {
+        display: none;
+      }
+    }
+
+    footer {
+      .hide-m {
+        display: none !important;
+      }
+      .show-m {
+        display: block;
+      }
+    }
+  }
+
+  // responsive
+
+  // @media (max-width: 991px) {
+  //   width: 66px;
+
+  //   aside {
+  //     width: 90px;
+
+  //     svg {
+  //       margin-right: 0 !important;
+  //     }
+
+  //     .btn {
+  //       padding-top: 0.6rem;
+  //       padding-bottom: 0.6rem;
+
+  //       span {
+  //         display: none;
+  //       }
+  //     }
+
+  //     footer {
+  //       .hide-m {
+  //         display: none !important;
+  //       }
+  //       .show-m {
+  //         display: block;
+  //       }
+  //     }
+  //   }
+  // }
+
+  @media (max-width: 575px) {
+    width: 0;
+
+    aside {
+      left: -100px;
+    }
+  }
+}
+
+//
+
+// page
+
+.page {
+  width: calc(100% - 66px);
+
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+}
