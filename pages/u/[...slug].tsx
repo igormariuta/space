@@ -75,7 +75,11 @@ const Post = () => {
         <meta
           key="description"
           name="description"
-          content={post?.attributes?.description ?? ""}
+          content={
+            post?.attributes?.description.length
+              ? post?.attributes?.description
+              : post?.attributes?.body.substring(0, 100) + "..."
+          }
         />
         <meta
           key="image"

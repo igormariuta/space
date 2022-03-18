@@ -39,11 +39,15 @@ const User = () => {
     <Layout>
       <Head>
         <title>{user?.fullName} | Космическая маслобойка</title>
-        <meta
-          key="description"
-          name="description"
-          content={user?.description ?? ""}
-        />
+        {user?.description?.length ? (
+          <meta
+            key="description"
+            name="description"
+            content={user?.description}
+          />
+        ) : (
+          <></>
+        )}
       </Head>
       {render()}
     </Layout>
