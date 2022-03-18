@@ -2,7 +2,7 @@ import moment from "moment";
 import { PersonPlus } from "react-bootstrap-icons";
 import UserAvatar from "../UserAvatar/UserAvatar";
 
-const UserFullHeader = ({ user, postsLength, tab, setTab }: any) => {
+const UserFullHeader = ({ user, tab, setTab }: any) => {
   return (
     <header
       className="bg-white rounded-2 p-4 mb-4 pb-0"
@@ -51,7 +51,6 @@ const UserFullHeader = ({ user, postsLength, tab, setTab }: any) => {
           }
         >
           Posts
-          <small className="text-secondary ms-2">{postsLength ?? 0}</small>
         </button>
         <button
           onClick={() => {
@@ -70,9 +69,6 @@ const UserFullHeader = ({ user, postsLength, tab, setTab }: any) => {
           }
         >
           Comments
-          <small className="text-secondary ms-2">
-            {user.comments?.length ?? 0}
-          </small>
         </button>
       </div>
     </header>

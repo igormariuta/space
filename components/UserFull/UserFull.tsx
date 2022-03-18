@@ -28,12 +28,7 @@ function UserFull({ user }: any) {
 
   return (
     <div className="container-md container-md-to-sm">
-      <UserFullHeader
-        user={user}
-        postsLength={posts?.data?.length}
-        tab={tab}
-        setTab={setTab}
-      />
+      <UserFullHeader user={user} tab={tab} setTab={setTab} />
 
       <main className="d-flex justify-content-between">
         <div className="container-sm">
@@ -53,6 +48,22 @@ function UserFull({ user }: any) {
               <div>
                 <p className="fw-500 mb-2">Stats</p>
                 <div className="mb-0 d-flex justify-content-between">
+                  <span className="fw-">Posts</span>
+                  <span className="text-secondary fw-500">
+                    {posts?.data?.length}
+                  </span>
+                </div>
+                <div className="mb-0 d-flex justify-content-between">
+                  <span className="fw-">Comments</span>
+                  <span className="text-secondary fw-500">
+                    {user.comments.length}
+                  </span>
+                </div>
+                <div
+                  className="my-2"
+                  style={{ height: "1px", background: "#eee" }}
+                ></div>
+                <div className="mb-0 d-flex justify-content-between">
                   <span className="fw-">Followers</span>
                   <span className="text-secondary fw-500">
                     {user.followers.length}
@@ -65,8 +76,6 @@ function UserFull({ user }: any) {
                   </span>
                 </div>
               </div>
-
-              {/* <p className="fw-500 mb-2">Contacts</p> */}
             </div>
           </div>
         </aside>
