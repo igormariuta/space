@@ -53,14 +53,6 @@ function UserFull({ user }: any) {
               <div>
                 <p className="fw-500 mb-2">Stats</p>
                 <div className="mb-0 d-flex justify-content-between">
-                  <span className="fw-">Post Views</span>
-                  <span className="text-secondary fw-500">
-                    {posts?.data?.reduce((p: any, c: any) => {
-                      return +p + +c.attributes.viewCount;
-                    }, 0)}
-                  </span>
-                </div>
-                <div className="mb-0 d-flex justify-content-between">
                   <span className="fw-">Followers</span>
                   <span className="text-secondary fw-500">
                     {user.followers.length}
