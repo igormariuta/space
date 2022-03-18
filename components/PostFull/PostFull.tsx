@@ -44,7 +44,7 @@ function PostFull({ post, user }: any) {
             <img
               className="w-100"
               src={
-                (process.env.REACT_APP_IMG ?? "") +
+                (process.env.NEXT_PUBLIC_IMG ?? "") +
                 (post.attributes.previewImage.data.attributes.formats?.large
                   ?.url ?? post.attributes.previewImage.data.attributes.url)
               }

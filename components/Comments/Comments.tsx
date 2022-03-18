@@ -8,9 +8,9 @@ function Comments({ comments }: any) {
   const [sortedComments, setSortedComments] = useState([]);
 
   useEffect(() => {
-    if (comments?.data?.length) {
+    if (comments?.length) {
       setSortedComments(
-        comments.data.sort((a: any, b: any) =>
+        comments.sort((a: any, b: any) =>
           new Date(a.attributes.createdAt)
             ? -1
             : new Date(b.attributes.createdAt)
@@ -25,72 +25,48 @@ function Comments({ comments }: any) {
     <div className="container-md bg-white rounded-2">
       <div className="container-sm p-4 pb-3">
         <div className="d-flex align-items-center justify-content-between">
-          <p className="fw-bold mb-0">{comments.data.length} Comments</p>
-          {/* <div>
-            <button
-              disabled
-              className="btn fw-normal p-0 py-2 me-4 rounded-0 border-0"
-            >
-              Popular
-            </button>
-            <button
-              className="btn fw-500 p-0 py-2 rounded-0 border-0"
-              style={{
-                boxShadow: "inset 0 -3px 0 0 var(--bs-primary)",
-              }}
-            >
-              In Order
-            </button>
-          </div> */}
+          <p className="fw-bold mb-0">{comments.length} Comments</p>
         </div>
       </div>
 
       <div style={{ height: "1px", background: "#eee" }}></div>
       <main className="container-sm p-4">
         {sortedComments?.map((comment: any) => (
-          <Comment key={comment.id} comment={comment} />
+          <Comment
+            key={comment.id}
+            comment={comment.attributes}
+            user={comment.attributes.user.data.attributes}
+          />
         ))}
       </main>
     </div>
   );
 }
 
-const Comment = ({ comment }: any) => (
+export const Comment = ({
+  comment,
+  user,
+  avatar = user.avatar.data?.attributes,
+}: any) => (
   <div className="mb-4-nl">
     <header className="d-flex align-items-center justify-content-between mb-2">
-      <Link href={`/u/${comment.attributes.user.data.attributes.username}`}>
+      <Link href={`/u/${user.username}`}>
         <a className="d-flex align-items-center text-dark text-decoration-none overflow-hidden">
-          <UserAvatar
-            avatar={
-              comment.attributes.user.data.attributes.avatar.data?.attributes
-            }
-            size={35}
-          />
+          <UserAvatar avatar={avatar} size={35} />
           <div className="d-flex flex-column">
             <div className="mb-0 fw-500">
-              <small>{comment.attributes.user.data.attributes.fullName}</small>
+              <small>{user.fullName}</small>
             </div>
             <small className="text-secondary">
-              {moment(comment.attributes.createdAt).fromNow()}
+              {moment(comment.createdAt).fromNow()}
             </small>
           </div>
         </a>
       </Link>
-      {/* <div className="d-flex align-items-center">
-        <button disabled className="btn p-0 d-flex align-items-center me-3">
-          <ArrowDownShort className="text-secondary" size={16} />
-        </button>
-        <span className="text-secondary fw-500">
-          {comment.attributes.rating}
-        </span>
-        <button disabled className="btn p-0 d-flex align-items-center ms-3">
-          <ArrowUpShort className="text-secondary" size={16} />
-        </button>
-      </div> */}
     </header>
     <main>
       <ReactMarkdown className="markdown-container">
-        {comment.attributes.body}
+        {comment.body}
       </ReactMarkdown>
     </main>
   </div>

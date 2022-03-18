@@ -19,7 +19,12 @@ const Meta = () => {
         sizes="16x16"
         href="/fav/favicon-16x16.png"
       />
-      <meta name="description" content="Добродошли на Космическую маслобойку" />
+      <meta
+        key="description"
+        name="description"
+        content="Пожалуй лучшая маслобойка во вселенной"
+      />
+      <meta key="image" property="og:image" content="/public/og-image.jpg" />
     </Head>
   );
 };

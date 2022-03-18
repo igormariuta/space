@@ -16,14 +16,14 @@ export async function getServerSideProps(context: any) {
     filters: {
       user: {
         username: {
-          $eq: slug![0],
+          $eq: slug[0],
         },
       },
     },
     populate: ["previewImage", "user.avatar", "comments.user.avatar"],
   });
 
-  const api = `${process.env.API}/api/posts/${slug![1]}?${query}`;
+  const api = `${process.env.API}/api/posts/${slug[1]}?${query}`;
   const data = await fetcher(api);
 
   return {
@@ -53,16 +53,12 @@ const Post = () => {
     fetcher
   );
 
-  // useEffect(() => {
-  //   console.log(slug);
-  // }, [slug]);
-
   const render = () => {
     if (post) {
       return post.id ? (
         <>
           <PostFull post={post} user={post.attributes.user.data.attributes} />
-          <Comments comments={post.attributes.comments} />
+          <Comments comments={post.attributes.comments.data} />
         </>
       ) : (
         <NotFound />
@@ -75,15 +71,17 @@ const Post = () => {
   return (
     <Layout>
       <Head>
-        {post?.attributes.previewImage.data ? (
-          <meta
-            property="og:image"
-            content={post.attributes.previewImage.data.attributes.url}
-          />
-        ) : (
-          <></>
-        )}
         <title>{post?.attributes?.title} | Космическая маслобойка</title>
+        <meta
+          key="description"
+          name="description"
+          content={post?.attributes?.description ?? ""}
+        />
+        <meta
+          key="image"
+          property="og:image"
+          content={post?.attributes?.previewImage.data?.attributes.url ?? ""}
+        />
       </Head>
       {render()}
     </Layout>

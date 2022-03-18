@@ -1,12 +1,12 @@
-const UserAvatar = ({ avatar, size = 20, borders = false }: any) => (
+const UserAvatar = ({ avatar, size = 20, borders = false, className }: any) => (
   <span
-    className="d-block rounded-2 bg-light me-3"
+    className={`d-block rounded-2 bg-light me-3 ${className}`}
     style={
       avatar
         ? {
             background:
               "no-repeat center url(" +
-              (process.env.API_IMG ?? "") +
+              (process.env.NEXT_PUBLIC_IMG ?? "") +
               (avatar.formats.thumbnail.url ?? "") +
               ")",
             backgroundSize: "cover",
