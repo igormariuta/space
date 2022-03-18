@@ -6,7 +6,7 @@ const UserFullComments = ({ user }: any) => {
     user.comments?.map((comment: any) => (
       <div key={comment.id} className="bg-white rounded-2 mb-4-nl">
         <div className="container-sm p-4 pb-3">
-          <Link href={`/u/${user.username}/${comment.post.slug}`}>
+          <Link href={`/u/${comment.post.user.username}/${comment.post.slug}`}>
             <a className="fw-500 mb-0 text-decoration-none text-dark">
               {comment.post.title}
             </a>
