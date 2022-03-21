@@ -1,4 +1,4 @@
-import { Bookmark, Chat, Eye } from "react-bootstrap-icons";
+import { Bookmark, Chat, Eye, Quote } from "react-bootstrap-icons";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
 import UserAvatar from "../UserAvatar/UserAvatar";
@@ -66,7 +66,7 @@ function PostFull({ post, user }: any) {
               .map((item: string, i: number) =>
                 item.length ? (
                   <Link key={i} href={`/tag/${item}`}>
-                    <a className="me-2 text-decoration-none text-info">
+                    <a className="me-2 d-inline-block text-decoration-none text-info">
                       #{item}
                     </a>
                   </Link>

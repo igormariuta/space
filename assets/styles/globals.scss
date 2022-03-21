@@ -86,6 +86,12 @@ h6 {
   margin-bottom: 1rem;
 }
 
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+//
+
 .markdown-container {
   overflow: hidden;
 
@@ -96,16 +102,17 @@ h6 {
   img {
     max-width: 100%;
   }
+
+  blockquote {
+    padding-left: 2rem;
+    position: relative;
+    box-shadow: inset 5px 0 0 0 #eee;
+    color: var(--bs-gray);
+
+    // &::before {
+    //   content: "'";
+    //   display: inline;
+    //   font-size: 20px;
+    // }
+  }
 }
-
-.whitespace-nowrap {
-  white-space: nowrap;
-}
-
-// .positon-relative {
-//   position: relative;
-// }
-
-// .position-absolute {
-//   position: absolute;
-// }
