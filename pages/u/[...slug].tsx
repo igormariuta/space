@@ -76,7 +76,7 @@ const Post = () => {
           key="description"
           name="description"
           content={
-            post?.attributes?.description.length
+            post?.attributes?.description?.length
               ? post?.attributes?.description
               : post?.attributes?.body.substring(0, 100) + "..."
           }
