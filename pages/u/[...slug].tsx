@@ -72,6 +72,19 @@ const Post = () => {
     <Layout>
       <Head>
         <title>{post?.attributes?.title} | Космическая маслобойка</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post?.attributes?.title} />
+        <meta
+          name="twitter:image"
+          content={post?.attributes?.previewImage.data?.attributes.url ?? ""}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post?.attributes?.title} />
+        <meta
+          key="image"
+          property="og:image"
+          content={post?.attributes?.previewImage.data?.attributes.url ?? ""}
+        />
         <meta
           key="description"
           name="description"
@@ -82,10 +95,15 @@ const Post = () => {
           }
         />
         <meta
-          key="image"
-          property="og:image"
-          content={post?.attributes?.previewImage.data?.attributes.url ?? ""}
-        />
+          property="og:description"
+          content={
+            post?.attributes?.description?.length
+              ? post?.attributes?.description
+              : post?.attributes?.body.substring(0, 100) + "..."
+          }
+        ></meta>
+
+        <meta property="og:image:width" content="1000" />
       </Head>
       {render()}
     </Layout>
