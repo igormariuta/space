@@ -75,12 +75,12 @@ function PostPreview({ post, user }: any) {
               {post.attributes.comments.data.length}
             </span>
           </div>
-          <button
+          {/* <button
             disabled
             className="btn p-0 d-flex align-items-center me-4 opacity-100"
           >
             <Bookmark className="text-secondary" size={16} />
-          </button>
+          </button> */}
         </div>
         {/* <div className="d-flex align-items-center">
           <button disabled className="btn p-0 d-flex align-items-center me-3">

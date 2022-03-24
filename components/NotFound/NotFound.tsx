@@ -22,7 +22,7 @@ function NotFound() {
           <p className="mb-0">
             But don&apos;t worry, you can find plenty of other things on our{" "}
             <Link href="/">
-              <a className="text-decoration-none text-secondary">homepage</a>
+              <a className="text-decoration-none">homepage</a>
             </Link>
           </p>
         </header>
@@ -45,9 +45,6 @@ function NotFound() {
             <div className="fw-500 p-0 d-flex align-items-center me-4">
               <Chat className="text-secondary me-2" size={16} />
               <span className="text-secondary">0</span>
-            </div>
-            <div className="fw-500 p-0 d-flex align-items-center me-4 opacity-100">
-              <Bookmark className="text-secondary" size={16} />
             </div>
           </div>
         </footer>

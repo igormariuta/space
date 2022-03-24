@@ -22,7 +22,7 @@ const Sidebar = () => {
             </a>
           </Link>
         </li>
-        <li className="mb-2">
+        {/* <li className="mb-2">
           <Link href="/popular">
             <a
               className={
@@ -35,9 +35,9 @@ const Sidebar = () => {
               <span>Popular</span>
             </a>
           </Link>
-        </li>
+        </li> */}
 
-        <li className="mb-2">
+        {/* <li className="mb-2">
           <Link href="/bookmarks">
             <a
               className={
@@ -50,7 +50,7 @@ const Sidebar = () => {
               <span>Bookmarks</span>
             </a>
           </Link>
-        </li>
+        </li> */}
       </ul>
       <footer className="mt-auto">
         <div className="show-m">

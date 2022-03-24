@@ -5,21 +5,6 @@ import qs from "qs";
 import PostsList from "../components/PostsList/PostsList";
 import Head from "next/head";
 import NotFound from "../components/NotFound/NotFound";
-// import NotFound from "../components/NotFound/NotFound";
-
-export async function getServerSideProps() {
-  const query = qs.stringify({
-    populate: ["previewImage", "user.avatar", "comments"],
-    sort: ["publishedAt:desc", "id"],
-  });
-  const api = `${process.env.API}/api/posts?${query}`;
-  const data = await fetcher(api);
-  return {
-    props: {
-      fallback: { [api]: data },
-    },
-  };
-}
 
 const New = () => {
   const query = qs.stringify({
@@ -54,10 +39,4 @@ const New = () => {
   );
 };
 
-export default function NewPage({ fallback }: any) {
-  return (
-    <SWRConfig value={{ fallback }}>
-      <New />
-    </SWRConfig>
-  );
-}
+export default New;

@@ -4,6 +4,7 @@ $body-bg: #f2f2f2;
 $body-color: #222;
 $primary: #b0e5df;
 $info: #87c4be;
+$link-color: #87c4be;
 // $light: #fff;
 
 // bootstr
@@ -60,12 +61,12 @@ body {
   transition: background 0.3s ease !important;
 }
 
-a {
-  transition: opacity 0.3s ease;
-  &:hover {
-    opacity: 0.7;
-  }
-}
+// a {
+//   transition: opacity 0.3s ease;
+//   &:hover {
+//     opacity: 0.7;
+//   }
+// }
 
 .mb-4-nl:not(:last-of-type) {
   margin-bottom: 1.5rem;

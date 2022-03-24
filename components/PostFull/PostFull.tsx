@@ -66,7 +66,7 @@ function PostFull({ post, user }: any) {
               .map((item: string, i: number) =>
                 item.length ? (
                   <Link key={i} href={`/tag/${item}`}>
-                    <a className="me-2 d-inline-block text-decoration-none text-info">
+                    <a className="me-2 d-inline-block text-decoration-none ">
                       #{item}
                     </a>
                   </Link>
@@ -94,12 +94,12 @@ function PostFull({ post, user }: any) {
                 {post.attributes.comments.data.length}
               </span>
             </div>
-            <button
+            {/* <button
               disabled
               className="btn p-0 d-flex align-items-center me-4 opacity-100"
             >
               <Bookmark className="text-secondary" size={16} />
-            </button>
+            </button> */}
           </div>
           {/* <div className="d-flex align-items-center text-secondary">
             <button disabled className="btn p-0 d-flex align-items-center me-3">
