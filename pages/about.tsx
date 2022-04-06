@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import image from "../../assets/images/og-image.jpg";
+import image from "../assets/images/og-image.jpg";
 import { Chat, Eye } from "react-bootstrap-icons";
 import Link from "next/link";
 import Layout from "../components/Layout/Layout";
