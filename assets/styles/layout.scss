@@ -3,9 +3,13 @@
 
   &-logo {
     background: url("../images/infinity.png") no-repeat center;
-    background-size: contain;
+    background-size: contain !important;
     width: 42px;
     height: 42px;
+
+    &--loading {
+      background: url("../images/infinity-loading.gif") no-repeat center;
+    }
   }
 }
 
@@ -15,6 +19,7 @@
 
 .sidebar {
   width: 220px;
+  width: 66px;
 
   aside {
     width: 240px;
@@ -22,17 +27,7 @@
     left: 0;
     top: 58px;
     height: calc(100% - 58px);
-  }
-
-  .show-m {
-    display: none;
-  }
-
-  // ====================================================================
-
-  width: 66px;
-
-  aside {
+    //
     width: 90px;
     padding: 1.5rem !important;
 
@@ -41,8 +36,14 @@
     }
 
     .btn {
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
+      // padding-top: 0.6rem;
+      // padding-bottom: 0.6rem;
+      padding: 0;
+      height: 42px;
+      width: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       span {
         display: none;
@@ -59,38 +60,6 @@
     }
   }
 
-  // responsive
-
-  // @media (max-width: 991px) {
-  //   width: 66px;
-
-  //   aside {
-  //     width: 90px;
-
-  //     svg {
-  //       margin-right: 0 !important;
-  //     }
-
-  //     .btn {
-  //       padding-top: 0.6rem;
-  //       padding-bottom: 0.6rem;
-
-  //       span {
-  //         display: none;
-  //       }
-  //     }
-
-  //     footer {
-  //       .hide-m {
-  //         display: none !important;
-  //       }
-  //       .show-m {
-  //         display: block;
-  //       }
-  //     }
-  //   }
-  // }
-
   @media (max-width: 575px) {
     width: 0;
 
@@ -100,8 +69,6 @@
   }
 }
 
-//
-
 // page
 
 .page {
@@ -109,5 +76,53 @@
 
   @media (max-width: 575px) {
     width: 100%;
+  }
+}
+
+//
+
+.auth {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  // background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+
+  &-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &-container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+  }
+
+  &-image {
+    min-width: 30%;
+    height: inherit;
+    background: var(--bs-primary) url("../images/infinity.png") no-repeat center;
+    // background-size: cover;
+  }
+
+  &-image--loading {
+    background: var(--bs-primary) url("../images/infinity-loading.gif")
+      no-repeat center;
+  }
+
+  &-content {
+    min-width: 70%;
   }
 }

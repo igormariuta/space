@@ -1,4 +1,17 @@
-import { Activity, Bookmark, Clock, InfoCircle } from "react-bootstrap-icons";
+import {
+  Activity,
+  Bookmark,
+  Check,
+  Check2Circle,
+  CheckCircle,
+  CheckLg,
+  CheckSquare,
+  Clock,
+  InfoCircle,
+  PersonCheck,
+  PlusCircle,
+  PlusCircleFill,
+} from "react-bootstrap-icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -14,15 +27,14 @@ const Sidebar = () => {
               className={
                 router.pathname == "/"
                   ? "btn btn-white d-flex align-items-center"
-                  : "btn  d-flex align-items-center"
+                  : "btn d-flex align-items-center"
               }
             >
               <Clock className="me-3" size={16} />
-              <span>New</span>
             </a>
           </Link>
         </li>
-        {/* <li className="mb-2">
+        <li className="mb-2">
           <Link href="/popular">
             <a
               className={
@@ -32,11 +44,22 @@ const Sidebar = () => {
               }
             >
               <Activity className="me-3" size={16} />
-              <span>Popular</span>
+            </a>
+          </Link>
+        </li>
+        {/* <li className="mb-2">
+          <Link href="/my">
+            <a
+              className={
+                router.pathname == "/my"
+                  ? "btn btn-white d-flex align-items-center"
+                  : "btn  d-flex align-items-center"
+              }
+            >
+              <CheckSquare className="me-3" size={16} />
             </a>
           </Link>
         </li> */}
-
         {/* <li className="mb-2">
           <Link href="/bookmarks">
             <a
@@ -47,7 +70,6 @@ const Sidebar = () => {
               }
             >
               <Bookmark className="me-3" size={16} />
-              <span>Bookmarks</span>
             </a>
           </Link>
         </li> */}
@@ -59,7 +81,7 @@ const Sidebar = () => {
               className={
                 router.pathname == "/about"
                   ? "btn btn-white d-flex align-items-center"
-                  : "btn btn-light d-flex align-items-center"
+                  : "btn d-flex align-items-center"
               }
             >
               <InfoCircle className="me-3" size={16} />

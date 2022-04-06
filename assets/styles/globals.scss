@@ -22,10 +22,18 @@ body {
   font-family: "Roboto", sans-serif !important;
   font-size: 16px;
   font-weight: 400;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 .btn {
   font-weight: 500;
+}
+
+.btn-link {
+  color: $link-color;
 }
 
 .btn-white {
@@ -56,10 +64,12 @@ body {
   font-weight: 500;
 }
 
-.form-control {
-  border: transparent !important;
-  transition: background 0.3s ease !important;
+header {
+  .form-control {
+    border: transparent !important;
+  }
 }
+
 
 // a {
 //   transition: opacity 0.3s ease;
@@ -109,11 +119,5 @@ h6 {
     position: relative;
     box-shadow: inset 5px 0 0 0 #eee;
     color: var(--bs-gray);
-
-    // &::before {
-    //   content: "'";
-    //   display: inline;
-    //   font-size: 20px;
-    // }
   }
 }

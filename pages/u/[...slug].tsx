@@ -90,16 +90,16 @@ const Post = () => {
           name="description"
           content={
             post?.attributes?.description?.length
-              ? post?.attributes?.description
-              : post?.attributes?.body.substring(0, 100) + "..."
+              ? post?.attributes.description
+              : post?.attributes.body?.substring(0, 100) + "..."
           }
         />
         <meta
           property="og:description"
           content={
             post?.attributes?.description?.length
-              ? post?.attributes?.description
-              : post?.attributes?.body.substring(0, 100) + "..."
+              ? post?.attributes.description
+              : post?.attributes.body?.substring(0, 100) + "..."
           }
         ></meta>
 

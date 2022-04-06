@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import Layout from "../../components/Layout/Layout";
 import image from "../../assets/images/og-image.jpg";
 import { Chat, Eye } from "react-bootstrap-icons";
 import Link from "next/link";
+import Layout from "../components/Layout/Layout";
 
 export default function AboutPage() {
   return (
     <Layout>
       <Head>
-        <title>About | Космическая маслобойка</title>
+        <title>О проекте | Космическая маслобойка</title>
       </Head>
       <div className="container-sm bg-white rounded-2 mb-4">
         <header className="p-4">
@@ -31,7 +31,7 @@ export default function AboutPage() {
             />
           </div>
         </main>
-        <footer className={"d-flex justify-content-between px-4 py-3"}>
+        {/* <footer className={"d-flex justify-content-between px-4 py-3"}>
           <div className="d-flex align-items-center">
             <div className="fw-500 p-0 d-flex align-items-center me-4">
               <Eye className="text-secondary me-2" size={16} />
@@ -42,7 +42,7 @@ export default function AboutPage() {
               <span className="text-secondary">0</span>
             </div>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </Layout>
   );
