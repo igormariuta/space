@@ -47,18 +47,18 @@ const Header = ({ setShowAuth }: any) => {
       </div>
       {user?.user ? (
         <div className="d-flex align-items-center ms-auto">
-          <div className="me-4">
+          {/* <div className="me-4">
             <button className="btn p-0">
               <PlusCircle size={16} />
             </button>
-          </div>
-          <span className="me-2">{user?.user?.username}</span> /
-          <button
+          </div> */}
+          <span>{user?.user?.username}</span>
+          {/* <button
             className="ms-2 btn p-1 d-flex align-items-center"
             onClick={() => logOut()}
           >
             Log Out
-          </button>
+          </button> */}
         </div>
       ) : (
         <div className="header-user-menu ms-auto">

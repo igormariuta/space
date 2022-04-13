@@ -38,13 +38,20 @@ const Login = ({ setShowAuth, setShowLogin }: any) => {
     await loginUser({
       identifier: data.email,
       password: data.password,
-    }).then((user) => {
-      if (user.user) {
-        setUserStore(user);
-        setUser(user);
+    }).then((data) => {
+      if (data.user) {
+        const usver = {
+          jwt: data.jwt,
+          user: {
+            username: data.user.username,
+            fullName: data.user.fullName,
+          },
+        };
+        setUserStore(usver);
+        setUser(usver);
         setShowAuth(false);
-      } else if (user.error) {
-        setServerError(user.error.message);
+      } else if (data.error) {
+        setServerError(data.error.message);
       }
     });
   };
