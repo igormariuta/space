@@ -13,8 +13,7 @@ type Inputs = {
 
 const Login = ({ setShowAuth, setShowLogin }: any) => {
   const { setUser } = useContext(UserContext);
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [serverError, setServerError] = useState("");
 
   async function loginUser(credentials: any) {
     return fetch(`${process.env.NEXT_PUBLIC_API}/api/auth/local/`, {
@@ -26,41 +25,28 @@ const Login = ({ setShowAuth, setShowLogin }: any) => {
     }).then((data) => data.json());
   }
 
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-
-  //   const user = await loginUser({
-  //     identifier: email,
-  //     password: password,
-  //   }).then();
-
-  //   if (user.data) {
-  //     setUserStore(user);
-  //     setUser(user);
-  //     setShowAuth(false);
-  //   }
-  // };
-
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>({
     reValidateMode: "onChange",
   });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const user = await loginUser({
+    setServerError("");
+    await loginUser({
       identifier: data.email,
       password: data.password,
+    }).then((user) => {
+      if (user.user) {
+        setUserStore(user);
+        setUser(user);
+        setShowAuth(false);
+      } else if (user.error) {
+        setServerError(user.error.message);
+      }
     });
-
-    if (user.user) {
-      setUserStore(user);
-      setUser(user);
-      setShowAuth(false);
-    }
   };
 
   return (
@@ -108,6 +94,13 @@ const Login = ({ setShowAuth, setShowLogin }: any) => {
               <div className="invalid-feedback">This field is required</div>
             )}
           </div>
+          {serverError ? (
+            <div className="text-danger mb-4" role="alert">
+              {serverError}
+            </div>
+          ) : (
+            <></>
+          )}
           <input
             type="submit"
             className="btn btn-primary px-4 mb-3"
